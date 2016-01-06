@@ -1,3 +1,5 @@
+
+
 #### pklealinuxshscripting
 
 - cp4
@@ -299,6 +301,8 @@ local x =2
 }
 echo $x   #1
 ```
+- cp11
+ctrl alt t  # create a new interactive shell
 
 
 
