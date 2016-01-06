@@ -188,6 +188,22 @@ will print $a.
  
  
  Debugging
+ To check syntax error
+ ```
+ bash -n x.sh
+ ```
+ 
+ -v #verbose
+ -x #show trace
+ ```
+ bash +vx #disable options vx
+ bash -vx #enable options vx
+ ```
+ In bash script,
+ ```
+ set -x #enable debigging
+ set +x #diable debugging
+ ```
  
  
 
@@ -225,6 +241,54 @@ result = `awk -v a=1 -v b=2 'BEGIN{printf "%.2f\n", a*b}'`
 ```
 
 
+- cp8
+set IFS
+```
+file=/etc/resolv.conf
+while IFS=read -r line
+do
+  echo $line
+done < "$file"
+```
+until (use commands)
+```
+until who | grep "$1" > /dev/null
+do
+ sleep 40
+done
+echo -e \\a
+```
+To execute:
+```
+xx.sh username
+```
+
+piping out for loops
+```
+for value in 1 2 3
+do
+ echo $value
+done | sort -n
+```
+
+Running in backgorund
+```
+for value in 1 2 3
+do
+ echo $value
+done &
+```
+
+Reassign IFS
+```
+#!
+longword = "a:b:c"
+IFS=":"
+for char in longword
+do
+ echo $char
+done
+```
 
 - cp9
 declare local var in func
