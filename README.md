@@ -127,4 +127,50 @@ non-regular assign
 ```
 fish=(eel [2]=piranha [1]=carp)
 ```
+- cp6
+raed with prompt
 ```
+read -p "Enter value: "  var
+echo $value
+```
+Or, using built-in $REPLY
+```
+read
+echo $REPLY
+```
+Read args as array:
+```
+read arg1 arg2 arg3
+echo $arg1
+....
+```
+Or
+```
+echo -n "Please input.."
+read -a arrayargs     # -a tag
+echo ${arrayargs[0]}
+....
+```
+
+
+- cp12
+sed
+```
+sed '3d' x.txt  # delete line 3
+sed '1,3d' x.txt # delete line 1-3
+sed '3,$d' x.txt # delete lines other than 3
+```
+
+awk
+
+scr.sh
+```
+/pattern/{print $1,$2}
+```
+Exucete:
+```
+awk -f scr.sh filename
+```
+```
+awk -f
+
