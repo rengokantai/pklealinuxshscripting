@@ -153,6 +153,42 @@ echo ${arrayargs[0]}
 ```
 
 
+- cp7
+expr  (in /uer/bin/expr)
+```
+expr 42 % 10     #2
+expr 4 \* 10     #40
+expr "4 * 10"    #40
+```
+
+Two syntax:
+```
+a=1
+b=2
+c=$((a+b))
+c=$[$a+$b]
+c=$[a+b]  #ok
+```
+
+Number system. syntax: base#numberinthatbase
+```
+declare -i x
+x=8#25  #21
+x=2#10101  #21
+```
+
+Floating-point arithmetic (use bc utility)
+```
+echo "scale=2;15/2" |bc  #7.50
+```
+use awk:
+```
+result = `awk -v a=1 -v b=2 'BEGIN{printf "%.2f\n", a*b}'`
+```
+
+
+
+
 - cp12
 sed
 ```
