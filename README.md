@@ -80,7 +80,7 @@ $@  print all args one by one
 getopts:
 ```y
 USAGE="usage: $0 -x -y"
-while getouts :xy: opt_char
+while getopts :xy: opt_char
 do
 case opt_char in
 x)
@@ -152,6 +152,44 @@ echo ${arrayargs[0]}
 ....
 ```
 
+EOF, <<
+First example. send email
+```
+tar -cvf /dev/st0 /home/stu 2>/dev/null
+[$? -eq 0] && status="success"||status="fail"
+mail -s 'title' z@z.com <<EOF
+$status
+$(date)
+EOF
+```
+Second exapmle, vim
+```
+ed x.txt <<quit
+,s/old/new/g
+w
+q
+quit
+```
+wall command is used for sending message to all logged users
+
+To avoid var substitution, we need to add quote
+```
+cat << 'EOF'
+$a
+EOF
+```
+will print $a.
+
+ here string. <<<
+ ```
+ wc -c <<< 'sample string'
+ ```
+ File handling
+ 
+ 
+ Debugging
+ 
+ 
 
 - cp7
 expr  (in /uer/bin/expr)
@@ -185,6 +223,19 @@ use awk:
 ```
 result = `awk -v a=1 -v b=2 'BEGIN{printf "%.2f\n", a*b}'`
 ```
+
+
+
+- cp9
+declare local var in func
+```
+x = 1
+funcname(){
+local x =2
+}
+echo $x   #1
+```
+
 
 
 
